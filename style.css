@@ -1,0 +1,42 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+#timeline-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 1rem;
+  background: #f5f5f5;
+  border-bottom: 2px solid #ccc;
+}
+
+#timeline-scroll {
+  display: flex;
+  gap: 1rem;
+}
+
+.timeline-item {
+  display: inline-block;
+  background: #0077cc;
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  min-width: 150px;
+  text-align: center;
+}
+
+.timeline-item:hover {
+  background: #005fa3;
+}
+
+#details {
+  padding: 2rem;
+}

@@ -1,1 +1,27 @@
-<h1>Hello World!</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Historical Timeline Wiki</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Interactive Timeline Wiki</h1>
+
+  <div id="timeline-container">
+    <div id="timeline-scroll">
+      <!-- Timeline entries will be injected here -->
+    </div>
+  </div>
+
+  <div id="details">
+    <h2 id="event-title"></h2>
+    <p id="event-date"></p>
+    <p id="event-details"></p>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
