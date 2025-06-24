@@ -1,27 +1,22 @@
-/* style.css */
-
 body {
   font-family: Arial, sans-serif;
-  background-color: #DAF7DC; /* Nyanza */
+  background-color: #DAF7DC;
   margin: 0;
   padding: 0;
-  color: #2F4858; /* Charcoal */
+  color: #2F4858;
 }
-
 .title {
   text-align: center;
-  background-color: #336699; /* Lapis Lazuli */
+  background-color: #336699;
   color: white;
   padding: 1rem 0;
   margin: 0;
 }
-
 #timeline-container {
-  background-color: #2F4858; /* Charcoal */
+  background-color: #2F4858;
   padding: 2rem 0;
   overflow-x: auto;
 }
-
 .timeline {
   display: flex;
   justify-content: flex-start;
@@ -30,7 +25,6 @@ body {
   padding: 0 2rem;
   position: relative;
 }
-
 .timeline::before {
   content: '';
   position: absolute;
@@ -38,14 +32,13 @@ body {
   left: 0;
   height: 4px;
   width: 100%;
-  background-color: #DAF7DC; /* Nyanza */
+  background-color: #DAF7DC;
   z-index: 0;
 }
-
 .timeline-item {
   position: relative;
   z-index: 1;
-  background-color: #86BBD8; /* Carolina blue */
+  background-color: #86BBD8;
   color: #000;
   padding: 1rem;
   border-radius: 10px;
@@ -55,36 +48,30 @@ body {
   transition: transform 0.3s;
   font-weight: bold;
 }
-
 .timeline-item:hover {
   transform: scale(1.05);
-  background-color: #336699; /* Lapis Lazuli */
+  background-color: #336699;
   color: white;
 }
-
 [data-year="2019"] { background-color: #9EE493; }
 [data-year="2020"] { background-color: #DAF7DC; }
 [data-year="2022"] { background-color: #336699; color: white; }
 [data-year="2024"] { background-color: #86BBD8; }
 [data-year="2025"] { background-color: #2F4858; color: white; }
 [data-year="2026"] { background-color: #9EE493; }
-
 #details {
   padding: 2rem;
   background-color: #ffffff;
   border-top: 2px solid #2F4858;
 }
-
 #event-title {
   font-size: 1.5rem;
   color: #336699;
 }
-
 #event-date {
   font-weight: bold;
   color: #2F4858;
 }
-
 #event-details {
   margin-top: 1rem;
   line-height: 1.6;
