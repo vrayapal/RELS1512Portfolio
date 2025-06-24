@@ -1,42 +1,92 @@
+/* style.css */
+
 body {
   font-family: Arial, sans-serif;
+  background-color: #DAF7DC; /* Nyanza */
   margin: 0;
   padding: 0;
+  color: #2F4858; /* Charcoal */
 }
 
-h1 {
+.title {
   text-align: center;
-  margin-top: 1rem;
+  background-color: #336699; /* Lapis Lazuli */
+  color: white;
+  padding: 1rem 0;
+  margin: 0;
 }
 
 #timeline-container {
+  background-color: #2F4858; /* Charcoal */
+  padding: 2rem 0;
   overflow-x: auto;
-  white-space: nowrap;
-  padding: 1rem;
-  background: #f5f5f5;
-  border-bottom: 2px solid #ccc;
 }
 
-#timeline-scroll {
+.timeline {
   display: flex;
-  gap: 1rem;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 3rem;
+  padding: 0 2rem;
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  background-color: #DAF7DC; /* Nyanza */
+  z-index: 0;
 }
 
 .timeline-item {
-  display: inline-block;
-  background: #0077cc;
-  color: white;
+  position: relative;
+  z-index: 1;
+  background-color: #86BBD8; /* Carolina blue */
+  color: #000;
   padding: 1rem;
   border-radius: 10px;
-  cursor: pointer;
-  min-width: 150px;
   text-align: center;
+  cursor: pointer;
+  min-width: 120px;
+  transition: transform 0.3s;
+  font-weight: bold;
 }
 
 .timeline-item:hover {
-  background: #005fa3;
+  transform: scale(1.05);
+  background-color: #336699; /* Lapis Lazuli */
+  color: white;
 }
+
+[data-year="2019"] { background-color: #9EE493; }
+[data-year="2020"] { background-color: #DAF7DC; }
+[data-year="2022"] { background-color: #336699; color: white; }
+[data-year="2024"] { background-color: #86BBD8; }
+[data-year="2025"] { background-color: #2F4858; color: white; }
+[data-year="2026"] { background-color: #9EE493; }
 
 #details {
   padding: 2rem;
+  background-color: #ffffff;
+  border-top: 2px solid #2F4858;
+}
+
+#event-title {
+  font-size: 1.5rem;
+  color: #336699;
+}
+
+#event-date {
+  font-weight: bold;
+  color: #2F4858;
+}
+
+#event-details {
+  margin-top: 1rem;
+  line-height: 1.6;
+  color: #333;
 }
