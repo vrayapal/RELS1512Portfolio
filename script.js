@@ -33,7 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
         item.dataset.religion = entry.religion;
         item.innerHTML = `<div>${entry.date}</div><div>${entry.name}</div>`;
 
-        // Assign color directly if necessary
         const fallbackColors = {
           2019: "#9EE493",
           2020: "#DAF7DC",
@@ -59,12 +58,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (entry.religion) religions.add(entry.religion);
       });
 
-      // Set dynamic width for the timeline line
       const itemCount = timeline.children.length;
-      const itemWidth = 225;
+      const itemWidth = 150;
       timeline.style.minWidth = `${itemCount * itemWidth}px`;
 
-      // Create buttons for each religion
       religions.forEach(religion => {
         const button = document.createElement("button");
         button.textContent = religion;
@@ -81,6 +78,24 @@ document.addEventListener("DOMContentLoaded", function () {
               filteredList.appendChild(entryBtn);
             }
           });
+
+          // TODO: Add overview summary below
+          // Replace or update this line with religion-specific content
+          const summaries = {
+            Christianity: "Christianity is a monotheistic religion centered on the life and teachings of Jesus Christ.",
+            Islam: "Islam is a monotheistic faith revealed through the Prophet Muhammad, emphasizing submission to Allah.",
+            Judaism: "Judaism is one of the oldest monotheistic religions, centered on the covenant between God and the people of Israel.",
+            Buddhism: "Buddhism is a spiritual tradition that focuses on personal spiritual development and the attainment of deep insight into the true nature of life.",
+            Hinduism: "Hinduism is a diverse and ancient religion with a wide range of beliefs and practices rooted in Indian traditions.",
+            General: "These events relate to multiple or interfaith topics, addressing broad themes across various religious traditions."
+          };
+
+          const summary = summaries[religion] || "No overview available for this religion.";
+
+          overviewSection.innerHTML = `
+            <h2>Religion Overview</h2>
+            <p><strong>${religion}</strong>: ${summary}</p>
+          `;
         });
         filterContainer.appendChild(button);
       });
