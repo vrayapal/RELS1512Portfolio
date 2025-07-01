@@ -1,8 +1,14 @@
-date,name,short_description,detailed_description
-February 19 1942,Start of Japanese American Internment,Internment of Japanese Americans - WW2,President Roosevelt signed Executive Order 9066 which authorized the forced relocation of Japanese Americans
-March 20 1946,End of Japanese American Internment,Internment of Japanese Americans - WW2,The last internment camp was closed officially ending the wartime incarceration of Japanese Americans
-December 7 1941,Pearl Harbor,Pearl Harbor,The Japanese military attacked Pearl Harbor leading to the US entering World War Two
-1886,Immigration Convention of 1886,Protected Japanese Plantation workers in Hawaii,The treaty protected Japanese workers from discriminatory labor conditions in Hawaii
-1913,Alien Land Laws in California,Prevented Land Ownership,California passed laws to prevent Asian immigrants from owning or leasing land for long periods
-1924,The Immigration Act of 1924,The Johnson-Reed Act,This act severely limited immigration from Asia effectively ending Japanese immigration to the United States
-2023-08-15,Milestone Reached,Major development,"<p>We completed <strong>Phase 2</strong> of our roadmap.<br>Highlights include:</p><ul><li>New partnerships</li><li>Launch of <a href='https://example.com' target='_blank'>Beta platform</a></li><li>Internal restructuring</li></ul>"
+date,name,short_description,detailed_description,religion
+2019-01-01,Founding,Start of our journey,"<p>The organization was founded by a diverse team with a shared vision.</p>",General
+2020-03-15,Outreach Begins,Initial outreach to communities,"<p>Focused efforts to engage communities of various faiths began.</p>",General
+2021-05-10,Christianity Conference,Christian leaders gather,"<p>Key theological topics were discussed and community efforts coordinated.</p>",Christianity
+2022-07-01,Eid Celebration,First interfaith Eid,"<p>This marked the first large-scale celebration of Eid within our timeline, drawing attendees from multiple backgrounds.</p>",Islam
+2022-12-08,Hanukkah Program,Jewish traditions explored,"<p>A week-long program introduced Jewish customs and historical context of Hanukkah.</p>",Judaism
+2023-04-15,Buddhist Retreat,Mindfulness focus,"<p>Led by Buddhist monks, the retreat taught mindfulness, compassion, and inner peace.</p>",Buddhism
+2023-10-03,Diwali Festival,Hindu light celebration,"<p>The celebration featured traditional music, food, and stories of Diwali's origin.</p>",Hinduism
+2024-03-12,Interfaith Dialogue,Religious leaders unite,"<p>Representatives from major religions shared beliefs and emphasized shared values.</p>",General
+2024-08-29,Pilgrimage Spotlight,Islamic pilgrimage insights,"<p>This session educated attendees about the Hajj and its spiritual importance.</p>",Islam
+2025-01-10,Christian Youth Summit,Empowering young believers,"<p>The summit focused on leadership and service in Christian communities.</p>",Christianity
+2025-06-15,Yom Kippur Reflections,Jewish atonement explored,"<p>A reflective panel discussed the significance of fasting and forgiveness.</p>",Judaism
+2025-11-20,Gita Jayanti Celebration,Hindu scripture honored,"<p>Readings and discussions of the Bhagavad Gita took place in this event.</p>",Hinduism
+2026-02-01,Dharma Day,Buddhist teachings shared,"<p>Participants learned about the Buddha’s first sermon and its lasting impact.</p>",Buddhism

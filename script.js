@@ -3,6 +3,9 @@
 document.addEventListener("DOMContentLoaded", function () {
   const timelineContainer = document.getElementById("timeline-container");
   const timeline = document.querySelector(".timeline");
+  const filterContainer = document.getElementById("filters");
+  const filteredList = document.getElementById("filtered-list");
+  const overviewSection = document.getElementById("religion-overview");
 
   // Enable horizontal scroll with vertical wheel movement
   timelineContainer.addEventListener("wheel", function(e) {
@@ -17,6 +20,8 @@ document.addEventListener("DOMContentLoaded", function () {
     header: true,
     complete: function(results) {
       const data = results.data;
+      const religions = new Set();
+      const timelineItems = [];
 
       data.forEach(entry => {
         if (!entry.date || !entry.name) return;
@@ -25,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const item = document.createElement("div");
         item.className = "timeline-item";
         item.dataset.year = year;
+        item.dataset.religion = entry.religion;
         item.innerHTML = `<div>${entry.date}</div><div>${entry.name}</div>`;
 
         // Assign color directly if necessary
@@ -49,12 +55,35 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         timeline.appendChild(item);
+        timelineItems.push({ element: item, entry });
+        if (entry.religion) religions.add(entry.religion);
       });
 
-      // Set dynamic width for the timeline line to match total width of items + gaps
+      // Set dynamic width for the timeline line
       const itemCount = timeline.children.length;
-      const itemWidth = 150; // approximate width including padding and margin
+      const itemWidth = 225;
       timeline.style.minWidth = `${itemCount * itemWidth}px`;
+
+      // Create buttons for each religion
+      religions.forEach(religion => {
+        const button = document.createElement("button");
+        button.textContent = religion;
+        button.addEventListener("click", () => {
+          filteredList.innerHTML = `<h3>${religion} Events</h3>`;
+          timelineItems.forEach(({ element, entry }) => {
+            if (entry.religion === religion) {
+              const entryBtn = document.createElement("button");
+              entryBtn.textContent = `${entry.date}: ${entry.name}`;
+              entryBtn.addEventListener("click", () => {
+                element.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                element.click();
+              });
+              filteredList.appendChild(entryBtn);
+            }
+          });
+        });
+        filterContainer.appendChild(button);
+      });
     }
   });
 });

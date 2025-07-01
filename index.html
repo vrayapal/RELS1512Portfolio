@@ -3,12 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>West Pacific Portfolio</title>
+  <title>Timeline Wiki Project</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    #filters button,
+    #filtered-list button {
+      background-color: #86BBD8;
+      color: #000;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    #filters button:hover,
+    #filtered-list button:hover {
+      background-color: #336699;
+      color: white;
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
-  <h1 class="title">RELS 1512 Final Portfolio</h1>
-  <h1 class="title">Religious Landscapes in the the West Pacific</h1>
+  <h1 class="title">Timeline Wiki</h1>
 
   <div id="timeline-container">
     <div class="timeline">
@@ -20,6 +40,20 @@
     <h2 id="event-title"></h2>
     <p id="event-date"></p>
     <p id="event-details"></p>
+  </div>
+
+  <div id="filters" style="padding: 2rem; text-align: center; background-color: #f0f0f0;">
+    <h2>Filter by Religion</h2>
+    <!-- Filter buttons will appear here -->
+  </div>
+
+  <div id="filtered-list" style="padding: 1rem 2rem; background-color: #ffffff;">
+    <!-- Filtered event list will appear here -->
+  </div>
+
+  <div id="religion-overview" style="padding: 2rem; background-color: #DAF7DC;">
+    <h2>Religion Overview</h2>
+    <p><!-- Add summary of selected religion here --></p>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
