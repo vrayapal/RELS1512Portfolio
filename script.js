@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
         item.addEventListener("click", () => {
           document.getElementById("event-title").textContent = entry.name;
           document.getElementById("event-date").textContent = entry.date;
-          document.getElementById("event-details").textContent = entry.detailed_description || entry.short_description || "No details available.";
+          document.getElementById("event-details").innerHTML = entry.detailed_description || entry.short_description || "No details available.";
         });
 
         timeline.appendChild(item);
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Set dynamic width for the timeline line to match total width of items + gaps
       const itemCount = timeline.children.length;
-      const itemWidth = 200; // approximate width including padding and margin
+      const itemWidth = 150; // approximate width including padding and margin
       timeline.style.minWidth = `${itemCount * itemWidth}px`;
     }
   });
