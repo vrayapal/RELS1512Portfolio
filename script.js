@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const filterContainer = document.getElementById("filters");
   const filteredList = document.getElementById("filtered-list");
   const overviewSection = document.getElementById("religion-overview");
+  const eventTitle = document.getElementById("event-title");
+  const eventDate = document.getElementById("event-date");
+  const eventDetails = document.getElementById("event-details");
 
   // Enable horizontal scroll with vertical wheel movement
   timelineContainer.addEventListener("wheel", function(e) {
@@ -14,6 +17,21 @@ document.addEventListener("DOMContentLoaded", function () {
       timelineContainer.scrollLeft += e.deltaY;
     }
   }, { passive: false });
+
+  const summaries = {
+    Filipino: "",
+    Makah: "",
+    Yurok: "",
+    LDS: "",
+    General: "These events relate to multiple or interfaith topics across various religious traditions in the West Pacific region. A timeline of all events is located at the top of the page. Selecting one will display more information about the event. To explore the history of a particular group, click on the filter by religion. This will display all the events related to that religion. An overview of that group will also appear at the bottom of the screen. This project is the culmination of my research and work in RELS1512. It sis not meant to be an overarching history of religion of the West Pacific United states, but rather e a culmination of what i have learned this semester."
+  };
+
+
+  // Show general summary on page load
+  overviewSection.innerHTML = `
+    <h2>Religion Overview</h2>
+    <p><strong>General</strong>: ${summaries.General}</p>
+  `;
 
   Papa.parse("events.csv", {
     download: true,
@@ -33,24 +51,37 @@ document.addEventListener("DOMContentLoaded", function () {
         item.dataset.religion = entry.religion;
         item.innerHTML = `<div>${entry.date}</div><div>${entry.name}</div>`;
 
-        const fallbackColors = {
-          2019: "#9EE493",
-          2020: "#DAF7DC",
-          2022: "#336699",
-          2024: "#86BBD8",
-          2025: "#FFB347",
-          2026: "#F67280"
-        };
+        // Default color for all timeline items
+        item.style.backgroundColor = "#86BBD8";
+        item.style.color = "#000";
 
-        if (fallbackColors[year]) {
-          item.style.backgroundColor = fallbackColors[year];
-          item.style.color = year === 2025 || year === 2026 ? "#fff" : "#000";
-        }
+        // Hover effect
+        item.addEventListener("mouseenter", () => {
+          if (!item.classList.contains("selected")) {
+            item.style.backgroundColor = "#336699";
+            item.style.color = "#fff";
+          }
+        });
+        item.addEventListener("mouseleave", () => {
+          if (!item.classList.contains("selected")) {
+            item.style.backgroundColor = "#86BBD8";
+            item.style.color = "#000";
+          }
+        });
 
         item.addEventListener("click", () => {
-          document.getElementById("event-title").textContent = entry.name;
-          document.getElementById("event-date").textContent = entry.date;
-          document.getElementById("event-details").innerHTML = entry.detailed_description || entry.short_description || "No details available.";
+          document.querySelectorAll(".timeline-item").forEach(el => {
+            el.classList.remove("selected");
+            el.style.backgroundColor = "#86BBD8";
+            el.style.color = "#000";
+          });
+          item.classList.add("selected");
+          item.style.backgroundColor = "#336699";
+          item.style.color = "#fff";
+
+          eventTitle.textContent = entry.name;
+          eventDate.textContent = entry.date;
+          eventDetails.innerHTML = entry.detailed_description || entry.short_description || "No details available.";
         });
 
         timeline.appendChild(item);
@@ -59,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       const itemCount = timeline.children.length;
-      const itemWidth = 150;
+      const itemWidth = 250;
       timeline.style.minWidth = `${itemCount * itemWidth}px`;
 
       religions.forEach(religion => {
@@ -79,19 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
           });
 
-          // TODO: Add overview summary below
-          // Replace or update this line with religion-specific content
-          const summaries = {
-            Christianity: "Christianity is a monotheistic religion centered on the life and teachings of Jesus Christ.",
-            Islam: "Islam is a monotheistic faith revealed through the Prophet Muhammad, emphasizing submission to Allah.",
-            Judaism: "Judaism is one of the oldest monotheistic religions, centered on the covenant between God and the people of Israel.",
-            Buddhism: "Buddhism is a spiritual tradition that focuses on personal spiritual development and the attainment of deep insight into the true nature of life.",
-            Hinduism: "Hinduism is a diverse and ancient religion with a wide range of beliefs and practices rooted in Indian traditions.",
-            General: "These events relate to multiple or interfaith topics, addressing broad themes across various religious traditions."
-          };
-
           const summary = summaries[religion] || "No overview available for this religion.";
-
           overviewSection.innerHTML = `
             <h2>Religion Overview</h2>
             <p><strong>${religion}</strong>: ${summary}</p>
